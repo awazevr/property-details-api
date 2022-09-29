@@ -3,7 +3,7 @@ const path = require("path");
 const axios = require("axios");
 
 const oas = fs.readFileSync(path.join(__dirname, "../oas/property_details.yml"));
-const report = fs.readFileSync(path.join(__dirname, "../output/report.md"));
+const report = fs.readFileSync(path.join(__dirname, "../report.md"));
 const success = process.argv[2];
 const version = process.argv[3] || process.env.GIT_COMMIT;
 
