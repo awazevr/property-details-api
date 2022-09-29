@@ -12,7 +12,7 @@ REPORT_FILE_CONTENT_TYPE?=text/plain
 VERIFIER_TOOL?=dredd
 
 # Only deploy from master
-ifeq ($(GIT_BRANCH),master)
+ifeq ($(GIT_BRANCH),main)
 	DEPLOY_TARGET=deploy
 else
 	DEPLOY_TARGET=no_deploy
