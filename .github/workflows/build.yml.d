@@ -2,6 +2,8 @@ name: Test & Upload to Pactflow
 
 on:
   push:
+     branches:
+      - main
   workflow_dispatch:
     inputs:
       PACT_CLI_DOCKER_VERSION:
