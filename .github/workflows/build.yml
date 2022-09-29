@@ -53,6 +53,9 @@ jobs:
         run: npm i
         shell: bash
 
+      - name: Publish
+        run: npm run publish
+        shell: bash
       # - name: Can I deploy?
       #   run: npm can-i-deploy
       #   shell: bash
@@ -65,20 +68,20 @@ jobs:
       #   run: npx semantic-release
 
   # # Runs on branches as well, so we know the status of our PRs
-  can-i-deploy:
-    strategy:
-      fail-fast: false
-      matrix:
-        os: ['ubuntu-latest']
-    runs-on: ${{ matrix.os }}
-    needs: [test, set-pact-cli-docker-version]
-    env:
-      PACT_CLI_DOCKER_VERSION: ${{ needs.set-pact-cli-docker-version.outputs.PACT_CLI_DOCKER_VERSION}}
-    steps:
-      - uses: actions/checkout@v3
-      - name: 🔎 Can I deploy? 
-        run: GIT_BRANCH=${GITHUB_REF:11} make can_i_deploy
-        shell: bash
+  # can-i-deploy:
+  #   strategy:
+  #     fail-fast: false
+  #     matrix:
+  #       os: ['ubuntu-latest']
+  #   runs-on: ${{ matrix.os }}
+  #   needs: [test, set-pact-cli-docker-version]
+  #   env:
+  #     PACT_CLI_DOCKER_VERSION: ${{ needs.set-pact-cli-docker-version.outputs.PACT_CLI_DOCKER_VERSION}}
+  #   steps:
+  #     - uses: actions/checkout@v3
+  #     - name: 🔎 Can I deploy? 
+  #       run: GIT_BRANCH=${GITHUB_REF:11} make can_i_deploy
+  #       shell: bash
 
   # # Only deploy from master
   # deploy:
