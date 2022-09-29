@@ -1,0 +1,1 @@
+{"buildTargets":[".env","all","can_i_deploy","ci","clean","deploy","deploy_app","deploy_target","fake_ci","no_deploy","publish_failure","publish_success","record_deployment","test"],"launchTargets":[],"customConfigurationProvider":{"workspaceBrowse":{"browsePath":[],"compilerArgs":[]},"fileIndex":[]}}

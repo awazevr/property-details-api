@@ -1,0 +1,6 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory `/Users/michaelackah/pact-bi-directional-provider-poc'
+echo "\n========== STAGE: test ✅ ==========\n"
+npm run test
+make: Leaving directory `/Users/michaelackah/pact-bi-directional-provider-poc'
+ 

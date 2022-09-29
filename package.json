@@ -1,0 +1,36 @@
+{
+  "name": "product-service",
+  "version": "1.0.0",
+  "description": "Collaborative contracts example, using Dredd and OAS to validate the provider API",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dredd": "dredd",
+    "test": "concurrently -k -s \"first\" \"npm start\" \"sleep 3 && npm run dredd\"",
+    "test:publish": "node test/publish.js",
+    "publish": "node test/publish.js true \"$(npx @pact-foundation/absolute-version)\"",
+    "can-i-deploy": "pact-broker can-i-deploy --pacticipant pactflow-example-bi-directional-provider-dredd --version=\"$(npx @pact-foundation/absolute-version)\" --to-environment production",
+    "deploy": "pact-broker record-deployment --pacticipant pactflow-example-bi-directional-provider-dredd --version \"$(npx @pact-foundation/absolute-version)\" --environment production"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "@pact-foundation/pact-core": "^13.4.1-beta.18",
+    "axios": "^0.21.1",
+    "concurrently": "^7.1.0",
+    "dotenv": "^8.2.0",
+    "dredd": "^14.1.0",
+    "eslint": "^6.8.0",
+    "@semantic-release/gitlab-config": "^8.0.0",
+    "semantic-release": "^17.4.7",
+    "@semantic-release/changelog": "^5.0.1",
+    "@semantic-release/commit-analyzer": "^8.0.1",
+    "@semantic-release/exec": "^5.0.0",
+    "@semantic-release/git": "^9.0.0",
+    "@semantic-release/npm": "^7.0.10",
+    "@semantic-release/release-notes-generator": "^9.0.2"
+  },
+  "license": "ISC"
+}

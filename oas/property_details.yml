@@ -1,0 +1,914 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+        "title": "Property lookup",
+        "description": "Property Content and Branding API",
+        "version": "0.1"
+    },
+    "components": {
+        "securitySchemes": {
+            "ApiKey": {
+                "type": "apiKey",
+                "in": "header",
+                "name": "X-API-Key"
+            }
+        },
+        "headers": {
+            "language": {
+                "description": "Language used for response data",
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "apiVersion": {
+                "description": "Version of the API that generated response data",
+                "schema": {
+                    "type": "string"
+                }
+            }
+        },
+        "schemas": {
+            "errorSchema": {
+                "type": "object",
+                "properties": {
+                    "message": {
+                        "type": "string"
+                    }
+                }
+            },
+            "propertyDetails": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "string"
+                    },
+                    "grade": {
+                        "type": "string"
+                    },
+                    "propertyName": {
+                        "type": "string"
+                    },
+                    "propertyType": {
+                        "type": "string"
+                    },
+                    "location": {
+                        "type": "string"
+                    },
+                    "siteName": {
+                        "type": "string"
+                    },
+                    "supplierCode": {
+                        "type": "string"
+                    },
+                    "review": {
+                        "$ref": "#/components/schemas/review"
+                    },
+                    "description": {
+                        "$ref": "#/components/schemas/description"
+                    },
+                    "features": {
+                        "$ref": "#/components/schemas/features"
+                    },
+                    "images": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/image"
+                        }
+                    },
+                    "mapDetail": {
+                        "$ref": "#/components/schemas/mapDetail"
+                    },
+                    "specs": {
+                        "type": "object",
+                        "properties": {
+                            "sleeps": {
+                                "type": "integer"
+                            },
+                            "bedrooms": {
+                                "type": "integer"
+                            },
+                            "bathrooms": {
+                                "type": "integer"
+                            },
+                            "pets": {
+                                "type": "integer"
+                            }
+                        },
+                        "required": ["sleeps", "bedrooms", "bathrooms", "pets"]
+                    },
+                    "goodToKnow": {
+                        "type": "object",
+                        "properties": {
+                            "smoking": {
+                                "type": "boolean"
+                            },
+                            "parking": {
+                                "type": "object",
+                                "properties": {
+                                    "available": {
+                                        "type": "boolean"
+                                    },
+                                    "type": {
+                                        "type": "string",
+                                        "enum": [
+                                            "bay",
+                                            "on-site",
+                                            "adjacent",
+                                            "on-road"
+                                        ]
+                                    }
+                                },
+                                "required": ["available"]
+                            },
+                            "whatsIncluded": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                }
+                            },
+                            "pets": {
+                                "type": "object",
+                                "properties": {
+                                    "number": {
+                                        "type": "integer"
+                                    },
+                                    "freeOfCharge": {
+                                        "type": "boolean"
+                                    }
+                                },
+                                "required": ["number", "freeOfCharge"]
+                            },
+                            "checkIn": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/components/schemas/CheckInOutTime"
+                                }
+                            },
+                            "checkOut": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/components/schemas/CheckInOutTime"
+                                }
+                            }
+                        },
+                        "required": [
+                            "pets",
+                            "whatsIncluded",
+                            "smoking",
+                            "parking"
+                        ]
+                    },
+                    "campaigns": {
+                        "$ref": "#/components/schemas/campaigns"
+                    },
+                    "relatedProperties": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "capacity": {
+                        "type": "object",
+                        "properties": {
+                            "adults": {
+                                "type": "integer"
+                            },
+                            "children": {
+                                "type": "integer"
+                            },
+                            "infants": {
+                                "type": "integer"
+                            }
+                        },
+                        "required": ["adults", "children", "infants"]
+                    },
+                    "awards": {
+                        "$ref": "#/components/schemas/awards"
+                    },
+                    "usps": {
+                        "$ref": "#/components/schemas/usps"
+                    },
+                    "media": {
+                        "$ref": "#/components/schemas/media"
+                    }
+                },
+                "required": [
+                    "code",
+                    "propertyName",
+                    "location",
+                    "description",
+                    "features",
+                    "images",
+                    "mapDetail",
+                    "specs",
+                    "goodToKnow",
+                    "campaigns",
+                    "relatedProperties",
+                    "capacity",
+                    "awards",
+                    "review",
+                    "usps"
+                ]
+            },
+            "siteDetails": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "string"
+                    },
+                    "location": {
+                        "type": "string"
+                    },
+                    "siteName": {
+                        "type": "string"
+                    },
+                    "activities": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "id": {
+                                    "type": "string"
+                                },
+                                "name": {
+                                    "type": "string"
+                                },
+                                "description": {
+                                    "type": "string"
+                                },
+                                "ageRange": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": ["id", "name"]
+                        }
+                    },
+                    "campaigns": {
+                        "$ref": "#/components/schemas/campaigns"
+                    },
+                    "collections": {
+                        "type": "array",
+                        "items": {
+                            "type": "string",
+                            "enum": [
+                                "autograph",
+                                "bouja",
+                                "daisyDoor",
+                                "evermore",
+                                "familyFun",
+                                "familyFunPlus",
+                                "goActive",
+                                "goActivePlus",
+                                "lodgeEscape",
+                                "magnificent",
+                                "relaxAndExplore",
+                                "tailorMade",
+                                "wanderWood"
+                            ]
+                        }
+                    },
+                    "description": {
+                        "$ref": "#/components/schemas/description"
+                    },
+                    "faqs": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "question": {
+                                    "type": "string"
+                                },
+                                "answer": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": ["question", "answer"]
+                        }
+                    },
+                    "geographicProximity": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "landmark": {
+                                    "type": "string",
+                                    "enum": ["airport", "railwayStation"]
+                                },
+                                "name": {
+                                    "type": "string"
+                                },
+                                "distance": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": ["landmark", "name", "distance"]
+                        }
+                    },
+                    "images": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/image"
+                        }
+                    },
+                    "mapDetail": {
+                        "$ref": "#/components/schemas/mapDetail"
+                    },
+                    "media": {
+                        "$ref": "#/components/schemas/media"
+                    },
+                    "review": {
+                        "$ref": "#/components/schemas/review"
+                    },
+                    "usps": {
+                        "$ref": "#/components/schemas/usps"
+                    },
+                    "awards": {
+                        "$ref": "#/components/schemas/awards"
+                    },
+                    "features": {
+                        "$ref": "#/components/schemas/features"
+                    }
+                },
+                "required": [
+                    "code",
+                    "location",
+                    "siteName",
+                    "activities",
+                    "campaigns",
+                    "collections",
+                    "description",
+                    "faqs",
+                    "geographicProximity",
+                    "images",
+                    "mapDetail",
+                    "media",
+                    "review",
+                    "usps",
+                    "features"
+                ]
+            },
+            "summaryDetails": {
+                "type": "object",
+                "properties": {
+                    "summaries": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "code": {
+                                    "type": "string"
+                                },
+                                "usps": {
+                                    "$ref": "#/components/schemas/usps"
+                                },
+                                "image": {
+                                    "$ref": "#/components/schemas/imageSummary"
+                                },
+                                "review": {
+                                    "$ref": "#/components/schemas/review"
+                                }
+                            },
+                            "required": ["code"]
+                        }
+                    },
+                    "invalidCodes": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "required": ["summaries"]
+            },
+            "usps": {
+                "type": "array",
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "type": "string"
+                        },
+                        "value": {
+                            "type": "string"
+                        }
+                    },
+                    "required": ["value"]
+                }
+            },
+            "review": {
+                "type": "object",
+                "properties": {
+                    "reviewCount": {
+                        "type": "integer"
+                    },
+                    "averageReviewScore": {
+                        "type": "number"
+                    }
+                }
+            },
+            "mapDetail": {
+                "type": "object",
+                "properties": {
+                    "latitude": {
+                        "type": "number"
+                    },
+                    "longitude": {
+                        "type": "number"
+                    }
+                }
+            },
+            "image": {
+                "type": "object",
+                "properties": {
+                    "assetId": {
+                        "type": "string"
+                    },
+                    "caption": {
+                        "type": "string"
+                    },
+                    "filename": {
+                        "type": "string"
+                    },
+                    "displayOrder": {
+                        "type": "integer"
+                    }
+                },
+                "required": ["assetId", "caption", "filename", "displayOrder"]
+            },
+            "imageSummary": {
+                "type": "object",
+                "properties": {
+                    "assetId": {
+                        "type": "string"
+                    },
+                    "caption": {
+                        "type": "string"
+                    }
+                }
+            },
+            "CheckInOutTime": {
+                "type": "object",
+                "properties": {
+                    "hour": {
+                        "type": "number"
+                    },
+                    "minute": {
+                        "type": "number"
+                    },
+                    "identifier": {
+                        "type": "string"
+                    }
+                },
+                "required": ["hour", "minute", "identifier"]
+            },
+            "description": {
+                "type": "object",
+                "properties": {
+                    "short": {
+                        "type": "string"
+                    },
+                    "long": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "required": ["short", "long"]
+            },
+            "campaigns": {
+                "type": "object",
+                "properties": {
+                    "campaignText": {
+                        "type": "string"
+                    }
+                }
+            },
+            "awards": {
+                "type": "array",
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "type": "string"
+                        },
+                        "name": {
+                            "type": "string"
+                        },
+                        "yearsApplicable": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "required": ["id", "name", "yearsApplicable"]
+                }
+            },
+            "features": {
+                "type": "array",
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "name": {
+                            "type": "string"
+                        },
+                        "id": {
+                            "type": "integer"
+                        },
+                        "value": {
+                            "type": "string"
+                        },
+                        "searchable": {
+                            "type": "boolean"
+                        },
+                        "displayValue": {
+                            "type": "string"
+                        }
+                    },
+                    "required": ["name", "id", "value", "searchable"]
+                }
+            },
+            "media": {
+                "type": "array",
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "type": {
+                            "type": "string",
+                            "enum": ["360Tour", "SiteVideo"]
+                        },
+                        "url": {
+                            "type": "string"
+                        }
+                    },
+                    "required": ["type", "url"]
+                }
+            }
+        }
+    },
+    "paths": {
+        "/property": {
+            "get": {
+                "description": "returns a property by property key",
+                "parameters": [
+                    {
+                        "name": "propertyCode",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "examples": {
+                            "ukc": {
+                                "summary": "Example value UKCx format",
+                                "value": "UKC3275"
+                            },
+                            "pg": {
+                                "summary": "Example value other format",
+                                "value": "PGGG"
+                            },
+                            "uk": {
+                                "summary": "Example value UKx format",
+                                "value": "UK30005"
+                            }
+                        }
+                    },
+                    {
+                        "name": "language",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "enum": ["en"]
+                        },
+                        "description": "Optional desired language of property detail elements. Default if not specified is 'en'"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                            "language": {
+                                "$ref": "#/components/headers/language"
+                            },
+                            "apiVersion": {
+                                "$ref": "#/components/headers/apiVersion"
+                            }
+                        },
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/propertyDetails"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request. No property code provided.",
+                        "headers": {
+                            "language": {
+                                "$ref": "#/components/headers/language"
+                            },
+                            "apiVersion": {
+                                "$ref": "#/components/headers/apiVersion"
+                            }
+                        },
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/errorSchema"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Bad request. Property not found.",
+                        "headers": {
+                            "language": {
+                                "$ref": "#/components/headers/language"
+                            },
+                            "apiVersion": {
+                                "$ref": "#/components/headers/apiVersion"
+                            }
+                        },
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/errorSchema"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal server error.",
+                        "headers": {
+                            "language": {
+                                "$ref": "#/components/headers/language"
+                            },
+                            "apiVersion": {
+                                "$ref": "#/components/headers/apiVersion"
+                            }
+                        },
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/errorSchema"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "ApiKey": []
+                    }
+                ]
+            }
+        },
+        "/site": {
+            "get": {
+                "description": "returns a site by supplier code",
+                "parameters": [
+                    {
+                        "name": "supplierCode",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "examples": {
+                            "TALA": {
+                                "summary": "Example site TALA",
+                                "value": "TALA"
+                            },
+                            "TREL": {
+                                "summary": "Example site TREL",
+                                "value": "TREL"
+                            },
+                            "VAUX": {
+                                "summary": "Example site VAUX",
+                                "value": "VAUX"
+                            }
+                        }
+                    },
+                    {
+                        "name": "language",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "enum": ["en"]
+                        },
+                        "description": "Optional desired language of property site elements. Default if not specified is 'en'"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                            "language": {
+                                "$ref": "#/components/headers/language"
+                            },
+                            "apiVersion": {
+                                "$ref": "#/components/headers/apiVersion"
+                            }
+                        },
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/siteDetails"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request. No supplier provided.",
+                        "headers": {
+                            "language": {
+                                "$ref": "#/components/headers/language"
+                            },
+                            "apiVersion": {
+                                "$ref": "#/components/headers/apiVersion"
+                            }
+                        },
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/errorSchema"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Bad request. Site not found.",
+                        "headers": {
+                            "language": {
+                                "$ref": "#/components/headers/language"
+                            },
+                            "apiVersion": {
+                                "$ref": "#/components/headers/apiVersion"
+                            }
+                        },
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/errorSchema"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal server error.",
+                        "headers": {
+                            "language": {
+                                "$ref": "#/components/headers/language"
+                            },
+                            "apiVersion": {
+                                "$ref": "#/components/headers/apiVersion"
+                            }
+                        },
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/errorSchema"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "ApiKey": []
+                    }
+                ]
+            }
+        },
+        "/summaries": {
+            "get": {
+                "description": "Returns summary details for properties or sites",
+                "parameters": [
+                    {
+                        "name": "codes",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "explode": false,
+                        "example": ["UKC3275", "TALA", "UK37329", "LP18610"],
+                        "description": "List of codes which summaries are required for. Property or site or a combination"
+                    },
+                    {
+                        "name": "elements",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "enum": ["usps", "image", "review"]
+                            }
+                        },
+                        "explode": false,
+                        "example": ["usps", "image", "review"],
+                        "description": "List of detail elements desired in response. Can be any of the available elements, and at least one must be specified"
+                    },
+                    {
+                        "name": "language",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "enum": ["en"]
+                        },
+                        "description": "Optional desired language of detail elements. Default if not specified is 'en'"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                            "language": {
+                                "$ref": "#/components/headers/language"
+                            },
+                            "apiVersion": {
+                                "$ref": "#/components/headers/apiVersion"
+                            }
+                        },
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/summaryDetails"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request.",
+                        "headers": {
+                            "language": {
+                                "$ref": "#/components/headers/language"
+                            },
+                            "apiVersion": {
+                                "$ref": "#/components/headers/apiVersion"
+                            }
+                        },
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/errorSchema"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Bad request. None of the codes found.",
+                        "headers": {
+                            "language": {
+                                "$ref": "#/components/headers/language"
+                            },
+                            "apiVersion": {
+                                "$ref": "#/components/headers/apiVersion"
+                            }
+                        },
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/errorSchema"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal server error.",
+                        "headers": {
+                            "language": {
+                                "$ref": "#/components/headers/language"
+                            },
+                            "apiVersion": {
+                                "$ref": "#/components/headers/apiVersion"
+                            }
+                        },
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/errorSchema"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "ApiKey": []
+                    }
+                ]
+            }
+        }
+    },
+    "tags": []
+}

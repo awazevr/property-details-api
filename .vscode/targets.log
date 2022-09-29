@@ -1,0 +1,410 @@
+make all --print-data-base --no-builtin-variables --no-builtin-rules --question
+# GNU Make 3.81
+# Copyright (C) 2006  Free Software Foundation, Inc.
+# This is free software; see the source for copying conditions.
+# There is NO warranty; not even for MERCHANTABILITY or FITNESS FOR A
+# PARTICULAR PURPOSE.
+
+# This program built for i386-apple-darwin11.3.0
+ 
+
+# Make data base, printed on Thu Sep 29 14:18:09 2022
+
+# Variables
+
+# automatic
+<D = $(patsubst %/,%,$(dir $<))
+# automatic
+?F = $(notdir $?)
+# environment
+ELECTRON_NO_ATTACH_CONSOLE = 1
+ 
+# automatic
+?D = $(patsubst %/,%,$(dir $?))
+# automatic
+@D = $(patsubst %/,%,$(dir $@))
+# automatic
+@F = $(notdir $@)
+# makefile
+CURDIR := /Users/michaelackah/pact-bi-directional-provider-poc
+# makefile
+SHELL = /bin/sh
+# environment
+VSCODE_NLS_CONFIG = {"locale":"en-gb","availableLanguages":{},"_languagePackSupport":true}
+# environment
+_ = /usr/bin/make
+# makefile (from `Makefile', line 1)
+MAKEFILE_LIST :=  Makefile
+# environment
+__CFBundleIdentifier = com.microsoft.VSCode
+# environment
+VSCODE_CWD = /Users/michaelackah/pact-bi-directional-provider-poc
+# makefile (from `Makefile', line 18)
+DEPLOY_TARGET = no_deploy
+# environment
+PATH = /Users/michaelackah/.pyenv/shims:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/TeX/texbin:/usr/local/laps:/usr/local/munki:/Library/Apple/usr/bin:/Applications/Visual Studio Code.app/Contents/Resources/app/bin
+# environment
+LSCOLORS = Gxfxcxdxbxegedabagacad
+# makefile (from `Makefile', line 3)
+PACT_CLI_DOCKER_VERSION = latest
+# makefile (from `Makefile', line 2)
+GITHUB_REPO := "pactflow/pactflow-example-bi-directional-provider-dredd"
+# makefile (from `Makefile', line 1)
+PACTICIPANT = "pactflow-example-bi-directional-provider-dredd"
+# environment
+ELECTRON_RUN_AS_NODE = 1
+# environment
+PYENV_ROOT = /Users/michaelackah/.pyenv
+# default
+.FEATURES := target-specific order-only second-expansion else-if archives jobserver check-symlink
+# environment
+SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.9EOHZXiITJ/Listeners
+# automatic
+%F = $(notdir $%)
+# environment
+PWD = /Users/michaelackah/pact-bi-directional-provider-poc
+# environment
+ORIGINAL_XDG_CURRENT_DESKTOP = undefined
+# environment
+VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
+# environment
+PYENV_SHELL = zsh
+# environment
+HOME = /Users/michaelackah
+# makefile (from `Makefile', line 11)
+REPORT_FILE_CONTENT_TYPE = text/plain
+# default
+MAKEFILEPATH = $(shell /usr/bin/xcode-select -print-path 2>/dev/null || echo /Developer)/Makefiles
+# environment
+VSCODE_CLI = 1
+# environment
+VSCODE_CODE_CACHE_PATH = /Users/michaelackah/Library/Application Support/Code/CachedData/784b0177c56c607789f9638da7b6bf3230d47a8c
+# environment
+LOGNAME = michaelackah
+# environment
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
+# environment
+ZSH = /Users/michaelackah/.oh-my-zsh
+# makefile (from `Makefile', line 8)
+PACT_CLI = "docker run --rm -v ${PWD}:/app -w "/app" -e PACT_BROKER_BASE_URL -e PACT_BROKER_TOKEN pactfoundation/pact-cli:${PACT_CLI_DOCKER_VERSION}"
+# environment
+VSCODE_HANDLES_UNCAUGHT_ERRORS = true
+# automatic
+^D = $(patsubst %/,%,$(dir $^))
+# environment
+XPC_FLAGS = 0x0
+# environment
+COLORTERM = truecolor
+# default
+MAKE = $(MAKE_COMMAND)
+# environment
+LC_TERMINAL = iTerm2
+# environment
+SHLVL = 3
+# default
+MAKE_VERSION := 3.81
+# environment
+USER = michaelackah
+# makefile
+.DEFAULT_GOAL := all
+# default
+MAKECMDGOALS := all
+# environment
+TERM_SESSION_ID = w0t2p0:73217A2D-9CE8-410D-AA5C-7A6FA455AE12
+# makefile (from `Makefile', line 12)
+VERIFIER_TOOL = dredd
+# environment
+LESS = -R
+# automatic
+%D = $(patsubst %/,%,$(dir $%))
+# default
+MAKE_COMMAND := /Library/Developer/CommandLineTools/usr/bin/make
+# environment
+TERM_PROGRAM = iTerm.app
+# default
+.VARIABLES := 
+# environment
+TMPDIR = /var/folders/kq/nx_22_xn395g592gy5kp7w5w0000gn/T/
+# automatic
+*F = $(notdir $*)
+# environment
+VSCODE_IPC_HOOK = /Users/michaelackah/Library/Application Support/Code/1.71.0-main.sock
+# environment
+MallocNanoZone = 0
+# makefile
+MAKEFLAGS = Rrqp
+# environment
+MFLAGS = -Rrqp
+# automatic
+*D = $(patsubst %/,%,$(dir $*))
+# environment
+TERM_PROGRAM_VERSION = 3.4.16
+# environment
+XPC_SERVICE_NAME = application.com.microsoft.VSCode.34568781.34568992.80A3185C-E6E6-4589-803C-2602477E8FDF
+# environment
+LC_TERMINAL_VERSION = 3.4.16
+# automatic
++D = $(patsubst %/,%,$(dir $+))
+# automatic
++F = $(notdir $+)
+# environment
+ITERM_SESSION_ID = w0t2p0:73217A2D-9CE8-410D-AA5C-7A6FA455AE12
+# environment
+COLORFGBG = 15;0
+# environment
+__CF_USER_TEXT_ENCODING = 0x1F5:0:2
+# environment
+COMMAND_MODE = unix2003
+# default
+MAKEFILES := 
+# automatic
+<F = $(notdir $<)
+# environment
+ITERM_PROFILE = Default
+# environment
+PAGER = less
+# environment
+LC_ALL = C
+# makefile (from `Makefile', line 10)
+REPORT_FILE_PATH = output/report.md
+# automatic
+^F = $(notdir $^)
+# default
+SUFFIXES := 
+# default
+.INCLUDE_DIRS = /usr/local/include
+# environment
+MAKELEVEL := 0
+# environment
+LANG = C
+# environment
+TERM = xterm-256color
+# makefile (from `Makefile', line 9)
+OAS_FILE_PATH = oas/products.yml
+# environment
+VSCODE_PID = 3890
+# variable set hash-table stats:
+# Load=85/1024=8%, Rehash=0, Collisions=6/119=5%
+
+# Pattern-specific Variable Values
+
+# No pattern-specific variable values.
+
+# Directories
+
+# . (device 16777221, inode 30910045): 21 files, no impossibilities.
+
+# 21 files, no impossibilities in 1 directories.
+
+# Implicit Rules
+
+# No implicit rules.
+
+# Files
+
+record_deployment: .env
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  commands to execute (from `Makefile', line 103):
+	@"${PACT_CLI}" broker record_deployment --pacticipant ${PACTICIPANT} --version ${GIT_COMMIT} --environment production
+	
+
+can_i_deploy: .env
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  commands to execute (from `Makefile', line 95):
+	@echo "\n========== STAGE: can-i-deploy? 🌉 ==========\n"
+	"${PACT_CLI}" broker can-i-deploy --pacticipant ${PACTICIPANT} --version ${GIT_COMMIT} --to-environment production
+	
+
+all: test
+#  Phony target (prerequisite of .PHONY).
+#  Command-line target.
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has been updated.
+#  Needs to be updated (-q is set).
+# variable set hash-table stats:
+ 
+# Load=0/32=0%, Rehash=0, Collisions=0/2=0%
+
+.PHONY: all test clean
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+deploy_app:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  commands to execute (from `Makefile', line 99):
+	@echo "\n========== STAGE: deploy 🚀 ==========\n"
+	@echo "Deploying to prod"
+	
+
+# Not a target:
+.SUFFIXES:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+Makefile:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-05 13:07:18
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+test:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  Implicit/static pattern stem: `'
+#  File does not exist.
+#  File has been updated.
+#  Needs to be updated (-q is set).
+# automatic
+# @ := test
+# automatic
+# % := 
+# automatic
+# * := 
+# automatic
+# + := 
+# automatic
+# | := 
+# automatic
+# < := 
+# automatic
+# ^ := 
+# automatic
+# ? := 
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=1/10=10%
+#  commands to execute (from `Makefile', line 82):
+	@echo "\n========== STAGE: test ✅ ==========\n"
+	npm run test
+	
+
+no_deploy:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  commands to execute (from `Makefile', line 92):
+	@echo "Not deploying as not on master branch"
+	
+
+.env:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  commands to execute (from `Makefile', line 114):
+	touch .env
+	
+
+publish_success: .env
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  commands to execute (from `Makefile', line 35):
+	@echo "\n========== STAGE: publish provider contract (spec + results) - success ==========\n"
+	PACTICIPANT=${PACTICIPANT} \
+	"${PACT_CLI}" pactflow publish-provider-contract \
+	/app/${OAS_FILE_PATH} \
+	--provider ${PACTICIPANT} \
+	--provider-app-version ${GIT_COMMIT} \
+	--branch ${GIT_BRANCH} \
+	--content-type application/yaml \
+	--verification-exit-code=0 \
+	--verification-results /app/${REPORT_FILE_PATH} \
+	--verification-results-content-type ${REPORT_FILE_CONTENT_TYPE}\
+	--verifier ${VERIFIER_TOOL}
+	
+
+# Not a target:
+.DEFAULT:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+ci:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  commands to execute (from `Makefile', line 28):
+	@if make test; then \
+	make publish_success; \
+	else \
+	make publish_failure; \
+	fi; \
+	
+
+publish_failure: .env
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  commands to execute (from `Makefile', line 49):
+	@echo "\n========== STAGE:  publish provider contract (spec + results) - failure  ==========\n"
+	PACTICIPANT=${PACTICIPANT} \
+	"${PACT_CLI}" pactflow publish-provider-contract \
+	/app/${OAS_FILE_PATH} \
+	--provider ${PACTICIPANT} \
+	--provider-app-version ${GIT_COMMIT} \
+	--branch ${GIT_BRANCH} \
+	--content-type application/yaml \
+	--verification-exit-code=1 \
+	--verification-results ${REPORT_FILE_PATH} \
+	--verification-results-content-type ${REPORT_FILE_CONTENT_TYPE}\
+	--verifier ${VERIFIER_TOOL}
+	
+
+clean:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+
+deploy: deploy_app record_deployment
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+fake_ci: .env
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  commands to execute (from `Makefile', line 66):
+	@CI=true \
+	GIT_COMMIT=`git rev-parse --short HEAD` \
+	GIT_BRANCH=`git rev-parse --abbrev-ref HEAD` \
+	PACT_BROKER_PUBLISH_VERIFICATION_RESULTS=true \
+	make ci; 
+	GIT_COMMIT=`git rev-parse --short HEAD` \
+	GIT_BRANCH=`git rev-parse --abbrev-ref HEAD` \
+	make deploy_target
+	
+
+deploy_target: can_i_deploy no_deploy
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# files hash-table stats:
+# Load=18/1024=2%, Rehash=0, Collisions=0/45=0%
+# VPATH Search Paths
+
+# No `vpath' search paths.
+
+# No general (`VPATH' variable) search path.
+
+# # of strings in strcache: 1
+# # of strcache buffers: 1
+# strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
+# strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
+
+# Finished Make data base on Thu Sep 29 14:18:09 2022
+
+ 
