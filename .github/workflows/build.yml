@@ -56,6 +56,10 @@ jobs:
       - name: Publish
         run: npm run publish
         shell: bash
+
+      - name: Deploy
+        run: npm run deploy
+        shell: bash
       # - name: Can I deploy?
       #   run: npm can-i-deploy
       #   shell: bash
