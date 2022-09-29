@@ -1,5 +1,5 @@
-PACTICIPANT ?= "pactflow-example-bi-directional-provider-dredd"
-GITHUB_REPO := "pactflow/pactflow-example-bi-directional-provider-dredd"
+PACTICIPANT ?= "property-details-api"
+GITHUB_REPO := "awazevr/property-details-api"
 PACT_CLI_DOCKER_VERSION?=latest
 
 ## ====================
