@@ -1,5 +1,5 @@
 PACTICIPANT ?= "property-detail-api"
-GITHUB_REPO := "awazevr/property-details-api"
+GITHUB_REPO := "awazevr/property-detail-api"
 PACT_CLI_DOCKER_VERSION?=latest
 
 ## ====================
